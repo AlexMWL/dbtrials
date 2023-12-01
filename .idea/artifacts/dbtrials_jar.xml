@@ -25,6 +25,7 @@
       <element id="file-copy" path="$PROJECT_DIR$/../../JARs/slf4j-api-1.7.36.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/../../JARs/sqlite-jdbc-3.44.1.0.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/../../JARs/mysql-connector-j-8.1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/logback-classic-1.4.13.jar" />
     </root>
   </artifact>
 </component>
