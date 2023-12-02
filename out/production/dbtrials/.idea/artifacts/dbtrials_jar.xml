@@ -3,29 +3,12 @@
     <output-path>$PROJECT_DIR$/out/artifacts/dbtrials_jar</output-path>
     <root id="archive" name="dbtrials.jar">
       <element id="module-output" name="dbtrials" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/javafx-swt.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/javafx.web.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/javafx.base.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/javafx.fxml.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/javafx.media.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/javafx.swing.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/javafx.controls.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/javafx.graphics.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/slf4j-api-1.7.36.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/sqlite-jdbc-3.44.1.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../JARs/mysql-connector-j-8.1.0.jar" path-in-jar="/" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/javafx-swt.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/javafx.web.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/javafx.base.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/javafx.fxml.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/javafx.media.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/javafx.swing.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/javafx.controls.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/javafx.graphics.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/../../JARs/slf4j-api-1.7.36.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/../../JARs/sqlite-jdbc-3.44.1.0.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/../../JARs/mysql-connector-j-8.1.0.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../JARs/logback-classic-1.4.13.jar" />
     </root>
   </artifact>
 </component>

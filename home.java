@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.*;
 
 public class home {
@@ -11,7 +14,7 @@ public class home {
     private static final String TABLE_NAME = "input_data";
 
     private JFrame frame;
-    private JTextField textField;
+    private JTextArea textArea;
     private JTextArea outputTextArea;
 
     public static void main(String[] args) {
@@ -20,15 +23,15 @@ public class home {
     }
 
     private void createAndShowGUI() {
-        frame = new JFrame("Database Trial v0.02d-dev");
+        frame = new JFrame("Database Trial v0.03a-dev");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        textField = new JTextField(40);
+        textArea = new JTextArea(5, 40);
         JButton saveButton = new JButton("Save");
         saveButton.addActionListener(new SaveButtonListener());
 
         JPanel inputPanel = new JPanel();
-        inputPanel.add(textField);
+        inputPanel.add(new JScrollPane(textArea));
         inputPanel.add(saveButton);
 
         outputTextArea = new JTextArea(30, 50);
@@ -61,18 +64,21 @@ public class home {
             }
 
         } catch (SQLException ex) {
-//            ex.printStackTrace();
+            System.out.println("Error accessing database. Attempting recovery from Shadow_Data...");
+            recoverDatabase();
+            loadData();
+            return;
         }
 
         if (outputTextArea.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(frame, "Data not found in the database.");
+            JOptionPane.showMessageDialog(frame, "Database failure!");
         }
     }
 
     private class SaveButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String userInput = textField.getText().trim();
+            String userInput = textArea.getText().trim();
 
             if (userInput.isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "Input cannot be empty!");
@@ -89,15 +95,42 @@ public class home {
                 preparedStatement.setString(1, userInput);
                 preparedStatement.executeUpdate();
 
+                createDatabaseCopy();
+
                 JOptionPane.showMessageDialog(frame, "Saved!");
 
-                textField.setText("");
+                textArea.setText("");
 
                 loadData();
 
             } catch (SQLException ex) {
 //                ex.printStackTrace();
             }
+        }
+    }
+
+    private void createDatabaseCopy() {
+        try {
+            File originalFile = new File("Data");
+            File copyFile = new File("Shadow_Data");
+
+            Files.copy(originalFile.toPath(), copyFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+        } catch (Exception e) {
+//            e.printStackTrace();
+        }
+    }
+
+    private void recoverDatabase() {
+        try {
+            File shadowFile = new File("Shadow_Data");
+            File dataFile = new File("Data");
+
+            Files.copy(shadowFile.toPath(), dataFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+            System.out.println("Database recovery successful");
+        } catch (Exception e) {
+//            e.printStackTrace();
         }
     }
 }
